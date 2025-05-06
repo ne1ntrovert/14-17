@@ -74,3 +74,4 @@ class Category:
 
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self.__products)} шт."
+
