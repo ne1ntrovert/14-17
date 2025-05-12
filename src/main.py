@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class BaseProduct(ABC):
     @abstractmethod
     def __init__(self, name: str, description: str, price: float, quantity: int):
@@ -28,12 +29,17 @@ class BaseProduct(ABC):
     def new_product(cls, product_data: dict):
         pass
 
+
 class ProductMixin:
     def __init__(self, *args, **kwargs):
+
         print(f"{self.__class__.__name__}({', '.join(map(str, args))})")
+
         super().__init__(*args, **kwargs)
 
+
 class Product(ProductMixin, BaseProduct):
+
     def __init__(self, name: str, description: str, price: float, quantity: int):
         self.name = name
         self.description = description
@@ -64,10 +70,13 @@ class Product(ProductMixin, BaseProduct):
     def new_product(cls, product_data: dict):
         return cls(
             name=product_data["name"],
+
             description=product_data["description"],
             price=product_data["price"],
+
             quantity=product_data["quantity"]
         )
+
 
 class Smartphone(Product):
     def __init__(self, name: str, description: str, price: float, quantity: int,
@@ -84,12 +93,15 @@ class Smartphone(Product):
             name=product_data["name"],
             description=product_data["description"],
             price=product_data["price"],
+
             quantity=product_data["quantity"],
             efficiency=product_data["efficiency"],
             model=product_data["model"],
+
             memory=product_data["memory"],
             color=product_data["color"]
         )
+
 
 class LawnGrass(Product):
     def __init__(self, name: str, description: str, price: float, quantity: int,
@@ -102,14 +114,18 @@ class LawnGrass(Product):
     @classmethod
     def new_product(cls, product_data: dict):
         return cls(
+
             name=product_data["name"],
             description=product_data["description"],
             price=product_data["price"],
             quantity=product_data["quantity"],
+
             country=product_data["country"],
             germination_period=product_data["germination_period"],
             color=product_data["color"]
+
         )
+
 
 class Category:
     category_count = 0
@@ -136,6 +152,7 @@ class Category:
     def __str__(self):
         total_quantity = sum(product.quantity for product in self.__products)
         return f"{self.name}, количество продуктов: {total_quantity} шт."
+
 
 if __name__ == "__main__":
     smartphone1 = Smartphone(
