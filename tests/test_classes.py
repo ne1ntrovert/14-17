@@ -105,7 +105,8 @@ def test_price_setter_with_zero():
 def test_price_setter_with_negative():
 
 
-    product = Product("Test Product", "Test Description", 100.0, 10)   product.price = -10
+    product = Product("Test Product", "Test Description", 100.0, 10)
+    product.price = -10
     assert product.price == 100.0  # Price should not change
 
 
