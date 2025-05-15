@@ -79,4 +79,5 @@ class Category:
         return "\n".join(str(product) for product in self.__products)
 
     def __str__(self):
-        return f"{self.name}, количество продуктов: {len(self.__products)} шт."
+        sum_products = sum([p.quantity for p in self.__products])
+        return f"{self.name}, количество продуктов: {sum_products} шт."
