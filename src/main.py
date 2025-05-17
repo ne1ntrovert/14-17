@@ -1,4 +1,5 @@
 class Product:
+
 from abc import ABC, abstractmethod
 
 class BaseProduct(ABC):
