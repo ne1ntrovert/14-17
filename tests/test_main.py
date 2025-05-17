@@ -4,7 +4,11 @@ from src.main import Product, Category, Smartphone, LawnGrass
 
 @pytest.fixture(autouse=True)
 def reset_counters():
-@@ -13,21 +13,301 @@ def test_product_initialization():
+    @@ -13,21 +13,301
+    @@
+
+
+def test_product_initialization():
     assert product.price == 100.0
     assert product.quantity == 10
 
