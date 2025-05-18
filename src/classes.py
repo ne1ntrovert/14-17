@@ -28,7 +28,7 @@ class Product:
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other):
+    def add(self, other):
         if isinstance(other, Product):
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError("Операнд должен быть экземпляром класса Product")
@@ -41,7 +41,6 @@ class Smartphone(Product):
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
-
         self.color = color
 
 
@@ -49,10 +48,8 @@ class LawnGrass(Product):
     def __init__(self, name, description, price, quantity,
                  country, germination_period, color):
         super().__init__(name, description, price, quantity)
-
         self.country = country
         self.germination_period = germination_period
-
         self.color = color
 
 
@@ -81,3 +78,4 @@ class Category:
     def __str__(self):
         sum_products = sum([p.quantity for p in self.__products])
         return f"{self.name}, количество продуктов: {sum_products} шт."
+
