@@ -1,8 +1,6 @@
 import pytest
 
-from main import Product, Category
-
-from src.main import Product, Category
+from src.classes import Product, Smartphone, LawnGrass, Category
 
 
 @pytest.fixture(autouse=True)
